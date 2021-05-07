@@ -1,31 +1,29 @@
-#codin:utf8
 # import the necessary package
-
-from config import opt
-import os
-import models
-from data import myData
+from torch.utils.tensorboard import SummaryWriter
 from torch.utils.data import DataLoader
 from torch.autograd import Variable
-from torchnet import meter
-from utils import Visualizer
-from tqdm import tqdm
 from torchvision import transforms
-import torchvision
-import torch
 from torchsummary import summary
-import json
 from torch.optim import lr_scheduler
+from utils import Visualizer
+from torchnet import meter
+from config import opt
+from data import myData
+from tqdm import tqdm
 from loss import FocalLoss
 from PIL import ImageFilter
-import random
 from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
+import torchvision
+import random
+import models
+import torch
+import json
 import pickle
 import roc
 import cv2
-
+import os
 
 def blur(img):
     img = img.filter(ImageFilter.GaussianBlur(radius=random.random()))
@@ -38,7 +36,6 @@ def maxcrop(img):
 	return img
 
 '''
-
 data_transforms = {
 	'train' : transforms.Compose([
 		#transforms.RandomRotation((45)),
@@ -68,6 +65,7 @@ data_transforms = {
 def train(**kwargs):
 	opt.parse(kwargs)
 	vis = Visualizer(opt.env)
+	writer = SummaryWriter
 	# step1:
 	model = getattr(models, opt.model)()
 	'''
@@ -140,7 +138,7 @@ def train(**kwargs):
 		running_loss = 0.0
 		running_corrects = 0
 		exp_lr_scheduler.step() 
-		for step,batch in enumerate(tqdm(train_loader,desc='Train %s On Anti-spoofing'%(opt.model), unit='batch')):
+		for step, batch in enumerate(tqdm(train_loader,desc='Train %s On Anti-spoofing'%(opt.model), unit='batch')):
 			inputs,labels = batch
 			 
 			if opt.use_gpu:
@@ -210,6 +208,17 @@ def train(**kwargs):
 				   train_cm=str(confusion_matrix.value()),
 				   val_cm = str(val_cm.value()),
 				   lr=lr))
+		# save training and validation repport in tensorboard writer
+		#t_acc = train_acc.value()[0]
+		#va_acc = val_acc.value()[0]
+		#t_loss = train_loss.value()[0]
+		#va_loss = val_loss.value()[0]
+
+		#writer.add_scalar('train_acc', t_acc, epoch)
+		#writer.add_scalar('val_acc', va_acc, epoch)
+		#writer.add_scalar('train_loss', t_loss, epoch)
+		#writer.add_scalar('val_loss', va_loss, epoch)
+
 		'''
 		if v_loss > previous_loss:          
 			lr = lr * opt.lr_decay

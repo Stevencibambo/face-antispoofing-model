@@ -130,3 +130,5 @@ dmypy.json
 
 # customer folder
 face-antispoof-model/raw
+face-antispoof-model/config.py
+face-antispoof-model/data/require_dataset.py
