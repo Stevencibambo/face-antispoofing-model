@@ -130,5 +130,6 @@ dmypy.json
 
 # customer folder
 face-antispoof-model/raw
-face-antispoof-model/config.py
-face-antispoof-model/data/require_dataset.py
+face-antispoof-model/models/pre-trainedModels/xception-c0a72b38.pth.tar
+
+

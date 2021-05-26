@@ -10,13 +10,13 @@ class DefaultConfig(object):
    GENUINE = 0
    LABELS = ['Genuine', 'Attack']
    train_filelists=[
-        ['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_train_raw.txt', GENUINE],
-        ['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw', '/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_train_raw.txt', ATTACK]
+        ['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_train_raw.txt', GENUINE],
+        ['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw', '/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_train_raw.txt', ATTACK]
     ]
 
    test_filelists=[
-        ['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_test_raw.txt',GENUINE],
-        ['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw','/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_test_raw.txt',ATTACK]
+        ['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_test_raw.txt',GENUINE],
+        ['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw','/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_test_raw.txt',ATTACK]
     ]
    #load_model_path = 'checkpoints/model.pth'
    load_model_path = None

@@ -146,7 +146,7 @@ def train(**kwargs):
 				labels = Variable(labels.cuda())
 			else:
 				inputs = Variable(inputs)
-				lables = Variable(labels)
+				labels = Variable(labels)
 			optimizer.zero_grad()   #zero the parameter gradients
 			with torch.set_grad_enabled(True):
 				outputs = model(inputs)

@@ -1,31 +1,30 @@
 # import the necessary packages
-import pickle
-import torch.utils.data as Data
-from PIL import ImageFilter
-import random
-import torch
+
 from torchvision import transforms
 from  torch.autograd import Variable
-import numpy as np
+import torch.utils.data as Data
+from PIL import ImageFilter
 from PIL import Image
+import numpy as np
+import pickle
+import random
+import torch
 import json
-import os
 import cv2
+import os
 
+# bothe classes
 ATTACK = 1
 GENUINE = 0
 
 train_filelists=[
-['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_train_raw.txt',GENUINE],
-['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw', '/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_train_raw.txt',ATTACK]
-]
+['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_train_raw.txt',GENUINE],
+['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw', '/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_train_raw.txt',ATTACK]]
 test_filelists=[
-['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_test_raw.txt', GENUINE],
-['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw', '/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_test_raw.txt', ATTACK]
-]
+['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_test_raw.txt', GENUINE],
+['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw', '/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_test_raw.txt', ATTACK]]
 
 class myData(torch.utils.data.Dataset):
-
     def __init__(self, filelists, scale=2.7, image_size=224, transform=None, test=False, data_source = None):
         self.transform = transform
         self.test = test
@@ -85,7 +84,7 @@ class myData(torch.utils.data.Dataset):
             ldmk = ldmk[np.argsort(np.std(ldmk[:, :, 1], axis=1))[-1]]
             img =self.crop_with_ldmk(img, ldmk)
         else:
-            image_path =self.img_label[index]['path']
+            image_path = self.img_label[index]['path']
             label = self.img_label[index]['class']
             #img = Image.open( image_path).convert('RGB')
             img = cv2.imread(image_path)
@@ -166,7 +165,7 @@ if __name__ == '__main__':
 
 
 
-    for step,batch in enumerate(train_loader):
+    for step, batch in enumerate(train_loader):
         data, target = batch
         #data.show()
         if torch.cuda.is_available():
