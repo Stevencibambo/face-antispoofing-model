@@ -12,13 +12,12 @@
 
 - You can change corresponding directory and filename in config.py
 - For example train_filelists=[
-    ['raw/ClientRaw','raw/client_train_raw.txt',GENUINE],
-    ['raw/ImposterRaw','imposter_train_raw.txt',ATTACK]
-    ]
-   test_filelists=[
-    ['raw/ClientRaw','raw/client_test_raw.txt',GENUINE],
-    ['raw/ImposterRaw','raw/imposter_test_raw.txt',ATTACK]
-    ]
+      ['raw/ClientRaw','raw/client_train_raw.txt',GENUINE],
+      ['raw/ImposterRaw','imposter_train_raw.txt',ATTACK]]
+     test_filelists=[
+      ['raw/ClientRaw','raw/client_test_raw.txt',GENUINE],
+      ['raw/ImposterRaw','raw/imposter_test_raw.txt',ATTACK]
+      ]
 ## Method
 - Our method is straightforward. Small patched containing a face is cropped with corresponding landmarks. A binary classification network is used to distinguish the attack patches.
 
@@ -32,3 +31,6 @@
 - We have fixed the bug of choice wrong face in multiple detected faces with standard of coordinates. 
 - To visualize cropped faces in dataset. Please run command: `python3 vis_cropface.py visualize`
 - All faces will be shown in data/showcropface_train.jpg and data/showcropface_val.jpg
+
+## Reference
+- Single-Shot Face Anti-Spoofing for Dual Pixel Camera; Xiaojun Wu and al.

@@ -3,8 +3,8 @@
 
 import os
 import numpy as np
-from PIL import Image
 import argparse
+
 
 def traversalDir_FirstDir(path):
     dir_list = []
@@ -18,24 +18,26 @@ def traversalDir_FirstDir(path):
                 dir_list.append(m)
     return dir_list
 
+
 def require_img_label(path):
     img_label = []
     for i in traversalDir_FirstDir(path):
         for root, dirs, files in os.walk(i):
             # print(files)
-            #s = root.split("\\")     #windows
-            #s = root.split("/")       #linux
+            # s = root.split("\\")     #windows
+            # s = root.split("/")       #linux
             # print(s[-1])
             for filename in files:
                 if filename.endswith("jpg") or filename.endswith("JPG"):
                     f1 = root + '\\' + filename
                     f1 = f1.replace('\\', '/')
-                    #tup = tuple((f1, s[-1]))
+                    # tup = tuple((f1, s[-1]))
                     # img_list.append(f1)
                     # lable_list.append(s[-1])
                     img_label.append(f1)
                     # print(tup)
     return img_label
+
 
 def changeDir_name(path):
     dir_list = []
@@ -44,7 +46,7 @@ def changeDir_name(path):
         files = os.listdir(path)
         for dir_name in files:
             if dir_name in ndict.keys():
-                #print(path + '\\' + dir_name)
+                # print(path + '\\' + dir_name)
                 if os.path.exists(path + '\\' + ndict[dir_name]):
                     pass
                 else:
@@ -55,14 +57,14 @@ def changeDir_name(path):
 def write_txt(path_out, image_list):
     with open(path_out, 'w') as fout:
         for i, item in enumerate(image_list):
-            #print(item)
-            line = '%s' % item+'\n'
+            # print(item)
+            line = '%s' % item + '\n'
             fout.write(line)
 
 
 def make_txt(path, rand_shuff, chunks, tra_ratio, tes_ratio):
     imglab_list = require_img_label(path)
-    #print(imglab_list)
+    # print(imglab_list)
     if rand_shuff is True:
         np.random.seed(100)
         np.random.shuffle(imglab_list)
@@ -82,9 +84,10 @@ def make_txt(path, rand_shuff, chunks, tra_ratio, tes_ratio):
 
         sep = int(chunk_size * tra_ratio)
         sep_test = int(chunk_size * tes_ratio)
-        #if tes_ratio == 1.0:
-            #print(chunk)
-        write_txt(path+str_chunk + 'test.txt', chunk[:sep_test])
+        # if tes_ratio == 1.0:
+        # print(chunk)
+        write_txt(path + str_chunk + 'test.txt', chunk[:sep_test])
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

@@ -129,7 +129,8 @@ dmypy.json
 .pyre/
 
 # customer folder
-raw
-models/pre-trainedModels/xception-c0a72b38.pth.tar
+raw/
+/models/pre-trainedModels/xception-c0a72b38.pth.tar
+checkpoints/
 
 
