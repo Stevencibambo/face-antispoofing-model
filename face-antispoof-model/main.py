@@ -1,4 +1,5 @@
-# import the necessary package
+# import the necessary packages
+
 from torch.utils.tensorboard import SummaryWriter
 from torch.utils.data import DataLoader
 from torch.autograd import Variable
@@ -92,16 +93,16 @@ def train(**kwargs):
 			test = False,
 			data_source='none')
 	val_data = myData(
-			filelists =opt.test_filelists,
+			filelists = opt.test_filelists,
 			#transform =data_transforms['val'],
-			transform =None,
+			transform = None,
                         scale = opt.cropscale,
-			test = False,data_source = 'none')
+			test = False, data_source = 'none')
 
-	train_loader = DataLoader(dataset=train_data,
+	train_loader = DataLoader(dataset = train_data,
 			batch_size = opt.batch_size, shuffle = True)
 	val_loader = DataLoader(dataset = val_data,
-			batch_size = opt.batch_size//2,shuffle = False)
+			batch_size = opt.batch_size // 2, shuffle = False)
 
 	dataloaders={'train': train_loader, 'val':val_loader}
 	dataset_sizes={'train': len(train_data),'val':len(val_data)}

@@ -18,11 +18,11 @@ ATTACK = 1
 GENUINE = 0
 
 train_filelists=[
-['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_train_raw.txt',GENUINE],
-['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw', '/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_train_raw.txt',ATTACK]]
+['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_train_raw.txt',GENUINE],
+['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw', '/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_train_raw.txt',ATTACK]]
 test_filelists=[
-['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_test_raw.txt', GENUINE],
-['/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw', '/Users/steven/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_test_raw.txt', ATTACK]]
+['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ClientRaw', '/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/client_test_raw.txt', GENUINE],
+['/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/ImposterRaw', '/home/maestro/Public/Project/python/face-antispoofing-model/face-antispoof-model/raw/imposter_test_raw.txt', ATTACK]]
 
 class myData(torch.utils.data.Dataset):
     def __init__(self, filelists, scale=2.7, image_size=224, transform=None, test=False, data_source = None):

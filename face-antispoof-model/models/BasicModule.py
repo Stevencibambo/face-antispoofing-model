@@ -26,7 +26,7 @@ class BasicModule(torch.nn.Module):
 class MyVggNet11(BasicModule):
     def __init__(self):
         super(MyVggNet11, self).__init__()
-        model = models.vgg11_bn(pretrained = True)
+        model = m`odels.vgg11_bn(pretrained = True)
         self.vggnet_lay = nn.Sequential(*list(model.children())[:-1])
         self.fc_Linear_lay2 = nn.Linear(128,2)
         self.drop = nn.Dropout(0.5)

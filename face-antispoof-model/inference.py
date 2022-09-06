@@ -125,6 +125,24 @@ def inference(**kwargs):
             tqbar.set_description(desc = 'Inference %s attack_prob=%f genuine_prob=%f with %s'%(imgdir, attack_prob,genuine_prob, opt.model))
             print('Inference %s attack_prob=%f genuine_prob=%f'%(imgdir, attack_prob, genuine_prob), file=fopen)
     fopen.close()
+
+def customer_summary():
+    import glob
+    data_handle = DataHandle(scale=opt.cropscale, use_gpu=opt.use_gpu, transform=None, data_source='none')
+    pths = glob.glob('checkpoints/%s/*.pth' % (opt.model))
+    pths.sort(key=os.path.getmtime, reverse=True)
+
+    opt.load_model_path = pths[0]
+    model = getattr(models, opt.model)().eval()
+    assert os.path.exists(opt.load_model_path)
+    if opt.load_model_path:
+        model.load(opt.load_model_path)
+    if opt.use_gpu: model.cuda()
+    model.train(False)
+    # summary(model, (3, 2016, 756))
+    summary(model, (3, 224, 224))
+
+
 def help():
     '''
     python file.py help
