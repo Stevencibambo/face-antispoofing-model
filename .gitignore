@@ -130,7 +130,11 @@ dmypy.json
 
 # customer folder
 raw/
-/models/pre-trainedModels/xception-c0a72b38.pth.tar
+models/pre-trainedModels/xception-c0a72b38.pth.tar
 checkpoints/
-
-
+data/showcropface_val.jpg
+data/showcropface_train.jpg
+data/test.txt
+detlandmark/*.jpg
+detlandmark/*.jpeg
+face_detector/
