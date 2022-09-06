@@ -12,17 +12,17 @@ solution to distinguish a real face from a fake one is based on the reconstructi
 depth from a pair of images from the dual pixel camera and the classification of the
 depth map. 
 
-![alt Genuine and Attach](data/genuis_attack1.png)
+![alt Genuine and Attach](result/genuis_attack1.png)
 
 - This is a Single Shot Face Anti-spoofing prototype.
 - Made by Pytorch and Python 3.7.x is used.
 
 ### Attack test
-![alt attack](data/inf_attack_5.png)
+![alt attack](result/inf_attack_5.png)
 
 
 ### Genuine test
-![alt text](data/inf_gen_2.png)
+![alt text](result/inf_gen_2.png)
 # Installation
 
 Please refer to the requirement.txt for all need packages to run this code efficiently
