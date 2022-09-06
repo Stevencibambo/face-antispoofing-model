@@ -55,7 +55,7 @@ In my case after creating an anaconda environment with python 3.7.9
 ## Training
 - First, edit file *config.py*, choose the target network and proper batch_size.
 - Then, in terminal command: 
-> make clean&&make
+> make clean && make
 
 > python3 main.py train
 
