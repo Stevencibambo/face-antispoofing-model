@@ -138,3 +138,4 @@ data/test.txt
 detlandmark/*.jpg
 detlandmark/*.jpeg
 face_detector/
+.idea/
