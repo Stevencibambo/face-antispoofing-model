@@ -1,13 +1,10 @@
 # Prototype Model For Face Anti-spoofing
-Nowadays, the facial recognition system is used in several applications mainly for in-
-dividual authentication. Whereas facial recognition remain vulnerable to several types
+Nowadays, the facial recognition system is used in several applications mainly for individual authentication. Whereas facial recognition remain vulnerable to several types
 of attacks ; Face Anti-Spoofing detection is a crucial step before providing facial data to
 the face recognition system.
-In this work, we are committed to providing a solution to the problem of face anti-
-spoofing attaque through the using of the Convolutional Neural Network with the dual
+In this work, we are committed to providing a solution to the problem of face anti-spoofing attaque through the using of the Convolutional Neural Network with the dual
 pixel image sensor. The main goal is to be able to distinguish a reel/genuine face to a
-fake face as much as possible. Thus being convinced of the usefulness of the informa-
-tion contained in the depth map of an image we opted to use it. Thus the proposed
+fake face as much as possible. Thus being convinced of the usefulness of the information contained in the depth map of an image we opted to use it. Thus the proposed
 solution to distinguish a real face from a fake one is based on the reconstruction of the
 depth from a pair of images from the dual pixel camera and the classification of the
 depth map. 
